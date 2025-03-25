@@ -1,0 +1,18 @@
+{% extends "requestdataapp/base.html" %}
+
+{% block title %}
+    Request
+{% endblock title %}
+
+{% block body %}
+    <h1>Request</h1>
+    <p>This is {{request.method}} method</p>
+
+    <div>
+        <pre>
+            a = "{{ a }}"
+            b = "{{ b }}"
+            result = "{{ result }}"
+        </pre>
+    </div>
+{% endblock body %}

@@ -1,0 +1,24 @@
+{% extends "shopapp/base.html" %}
+
+{% block title %}
+    Create product
+{% endblock title %}
+
+{% block body %}
+    <div>
+        <form method="post">
+        {% csrf_token %}
+
+            {{ forms.as_p }}
+
+            <button type="submit">
+                Create new product
+            </button>
+        </form>
+    </div>
+
+    <div>
+        <a href="{% url 'shopapp:products' %}">Back to view a products</a>
+    </div>
+
+{% endblock %}

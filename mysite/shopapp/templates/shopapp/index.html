@@ -1,0 +1,18 @@
+{% extends "shopapp/base.html" %}
+
+{% block title %}
+    Catalog
+{% endblock title %}
+
+{% block body %}
+
+<h3>Каталог товаров</h3>
+
+<div>
+    <ul>
+        {% for name, price in products %}
+            <li>{{name}} for ${{price}}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock  %}
