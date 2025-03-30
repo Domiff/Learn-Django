@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from shopapp.models import Product, Order
+from .models import Product, Order
 from .admin_mixins import ExportAsCSV
 
 
