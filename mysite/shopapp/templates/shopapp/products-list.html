@@ -10,7 +10,9 @@
         <div>
         {% for product in products %}
             <div>      
-                <p>Name: {{product.name}} - Price: {{product.price}} - Description: {{ product.description }}</p>
+                <p><a href="{% url 'shopapp:products-detail' pk=product.pk %}">Name: {{product.name}}</a></p>
+                <p>Price: {{product.price}}</p>
+                <p>Description: {{ product.description }}</p>
             </div>
         {% endfor %}
         </div>

@@ -13,7 +13,7 @@ class Product(models.Model):
          
     def __str__(self):
         return self.name
-    
+
 
 class Order(models.Model):
     addres = models.TextField(null=True, blank=True)
