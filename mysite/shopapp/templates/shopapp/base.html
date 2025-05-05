@@ -7,8 +7,23 @@
             Base Title
         {% endblock %}
     </title>
+{#    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">#}
+    <style>
+        .body {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin: auto;
+            padding: 30px;
+            background-color: deepskyblue;
+        }
+
+        img {
+            width: 250px;
+        }
+    </style>
 </head>
-<body>
+<body class="body">
     {% block body %}
         Base body
     {% endblock  %}

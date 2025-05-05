@@ -1,0 +1,20 @@
+<!-- templates/blog/blog_archive.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Blog Archive</title>
+    </head>
+    <body>
+    <h1>Blog Archive</h1>
+    <ul>
+        {% for date in dates %}
+            <li>
+                <p>{{ date.published_date|date:"Y M" }}</p>
+                <p>{{ date.title }}</p>
+                <p>{{ date.content }}</p>
+                <p>{{ date.published_date }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    </body>
+</html>

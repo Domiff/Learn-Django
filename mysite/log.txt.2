@@ -1,0 +1,12 @@
+2025-05-05 22:15:02,925 - ERROR - django.request - Internal Server Error: /sitemap.xml
+Traceback (most recent call last):
+  File "/home/domitori/Рабочий стол/Django/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/domitori/Рабочий стол/Django/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/domitori/Рабочий стол/Django/.venv/lib/python3.12/site-packages/django/contrib/sitemaps/views.py", line 23, in inner
+    response = func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: sitemap() got an unexpected keyword argument 'sitemap'

@@ -1,15 +1,29 @@
 {% extends 'shopapp/base.html' %}
 
 {% block title %}
-	Product
+    Product
 {% endblock %}
 
 {% block body %}
-	<h1>Product: {{ product.name }}</h1>
+    <h1>Product: {{ product.name }}</h1>
     <div>
         <div>Name: {{ product.name }}</div>
         <div>Price: {{ product.price }}</div>
         <div>Description: {{ product.description }}</div>
+        <p>Preview: </p>
+        {% if product.preview %}
+            <img src="{{ product.preview.url }}" alt="{{ product.preview.name }}">
+        {% endif %}
+        <h3>Images:</h3>
+        <div>
+            {% for img in product.images.all %}
+                <div>
+                    <img src="{{ img.image.url }}" alt="{{ img.image.name }}">
+                </div>
+            {% empty %}
+                <p>No image yet</p>
+            {% endfor %}
+        </div>
     </div>
     <div>
         <a href="{% url 'shopapp:products-update' pk=product.pk %}">Update product</a>

@@ -1,29 +1,43 @@
 {% extends "shopapp/base.html" %}
 
+{% load i18n %}
+
 {% block title %}
-    Products List
+    {% translate 'Products List' %}
 {% endblock title %}
 
 {% block body %}
-    <h1>Главная</h1>
+    <h1 dir="rtl">{% translate 'Main' %}</h1>
     {% if products %}
+        {% blocktranslate count products_count=products|length %}
+            There is a one product
+            {% plural %}
+            There are {{ products_count }} products
+        {% endblocktranslate %}
         <div>
-        {% for product in products %}
-            <div>      
-                <p><a href="{% url 'shopapp:products-detail' pk=product.pk %}">Name: {{product.name}}</a></p>
-                <p>Price: {{product.price}}</p>
-                <p>Description: {{ product.description }}</p>
-            </div>
-        {% endfor %}
+            {% for product in products %}
+                <div>
+                    <p>
+                        <a href="{% url 'shopapp:products-detail' pk=product.pk %}">{% translate 'Name' context 'product name' %}:
+                            {{ product.name }}</a></p>
+                    <p>{% translate 'Price' %}: {{ product.price }}</p>
+                    <p>{% translate 'Description' %}: {{ product.description }}</p>
+                </div>
+                {% if product.preview %}
+                    <img src="{{ product.preview.url }}" alt="{{ product.preview.name }}">
+                {% endif %}
+            {% endfor %}
         </div>
+        <a href="{% url 'shopapp:create_product' %}">{% translate 'Create product' %}</a>
     {% else %}
-    <h3>
-        No products yet
-    </h3>
+        {% url 'shopapp:create_product' as create_product_view%}
+        {% blocktranslate %}
+            <h3>
+                No products yet
+            </h3>
+            <div>
+                <a href="{{ create_product_view }}">Create product</a>
+            </div>
+        {% endblocktranslate %}
     {% endif %}
-
-    <div>
-        <a href="{% url 'shopapp:create_product' %}">Create product</a>
-    </div>
-
 {% endblock %}

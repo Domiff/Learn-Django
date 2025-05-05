@@ -1,4 +1,5 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 
 from .views import (
     ShopIndexView,
@@ -6,13 +7,17 @@ from .views import (
     ProductViewList,
     ShopDetailView,
     orders_list,
-    create_product,
+    # create_product,
     ProductCreate,
     ProductUpdateView,
     ProductDeleteView,
+    BlogArchiveIndexView, ProductViewSet,
 )
 
 app_name = "shopapp"
+
+routers = DefaultRouter()
+routers.register("products", ProductViewSet)
 
 urlpatterns = [
     path("", ShopIndexView.as_view(), name="index"),
@@ -25,7 +30,9 @@ urlpatterns = [
     path(
         "products/<int:pk>/delete", ProductDeleteView.as_view(), name="products-delete"
     ),
-    path("products/create", create_product, name="create_product"),
+    path("products/create", ProductCreate.as_view(), name="create_product"),
     path("orders", orders_list, name="orders"),
     path("products/form_create", ProductCreate.as_view(), name="create_product_form"),
+    path("archive/", BlogArchiveIndexView.as_view(), name="blog_archive_index"),
+    path("api/", include(routers.urls)),
 ]

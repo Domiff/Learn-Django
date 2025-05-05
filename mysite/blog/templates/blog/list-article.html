@@ -1,0 +1,25 @@
+{% extends "blog/base.html" %}
+
+{% block title %}
+    List articles
+{% endblock title %}
+
+{% block body %}
+    <h1>List articles</h1>
+    <div>
+        {% for article in object_list %}
+            <p>
+                Title: <a href="{% url 'blog:article' pk=article.pk %}">{{ article.title }}</a>
+            </p>
+            <p>
+                Body: {{ article.body }}
+            </p>
+            <p>
+                Published_at: {{ article.published_at }}
+            </p>
+        {% empty %}
+            <h2>No articles yet</h2>
+        {% endfor %}
+    </div>
+{% endblock body %}
+

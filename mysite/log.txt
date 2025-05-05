@@ -1,0 +1,2 @@
+2025-05-05 22:15:57,483 - INFO - django.utils.autoreload - /home/domitori/Рабочий стол/Django/mysite/mysite/urls.py changed, reloading.
+2025-05-05 22:15:58,054 - INFO - django.utils.autoreload - Watching for file changes with StatReloader

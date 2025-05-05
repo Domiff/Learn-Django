@@ -7,7 +7,7 @@
 {% block body %}
     <h1>Update form</h1>
     <div>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Update</button>

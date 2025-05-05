@@ -1,0 +1,14 @@
+{% extends 'myauth/base.html' %}
+
+{% block title %}
+	Register
+{% endblock %}
+
+{% block body %}
+	<h1>Register</h1>
+    <form method="post" id="reg">
+        {% csrf_token %}
+        {{ form.as_p }}
+    </form>
+    <button type="submit" form="reg">Create account</button>
+{% endblock %}

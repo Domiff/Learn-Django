@@ -1,0 +1,17 @@
+{% extends 'myauth/base.html' %}
+
+{% block title %}
+	About me
+{% endblock %}
+
+{% block body %}
+	<h1>About me</h1>
+    {% if user.is_authenticated %}
+    	<h2>Details:</h2>
+        <p>User: {{ user.username }}</p>
+    	<p>Bio: {{ user.profile.bio }}</p>
+        <p>Join at: {{ user.profile.joined_at }}</p>
+    {% else %}
+        <h2>User is not login</h2>
+    {% endif %}
+{% endblock %}
